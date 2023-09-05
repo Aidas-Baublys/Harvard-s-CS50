@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+    <title>Trivia!</title>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1>Trivia!</h1>
+    </div>
+    <div class="container">
+      <div class="section">
+        <h2>Part 1: Multiple Choice </h2>
+        <h3 id="q-1">Question!</h3>
+        <hr>
+        <input type="radio" id="html" name="fav_language" value="HTML">
+        <label for="html">HTML</label><br>
+        <input type="radio" id="css" name="fav_language" value="CSS">
+        <label for="css">CSS</label><br>
+        <input type="radio" id="js" name="fav_language" value="JavaScript">
+        <label for="javascript">JavaScript</label>
+      </div>
+
+      <div class="section">
+        <h2>Part 2: Free Response</h2>
+        <h3 id="q-2">Another Question!</h3>
+        <hr>
+        <input type="textarea" id="text">
+        <button onclick="onClick()">Confirmo</button>
+      </div>
+    </div>
+  </body>
+  <script>
+    const showMsg = (answer) => {
+      const msg = document.createElement("div");
+      if (answer) {
+        msg.color = "green";
+        msg.innerHTML = "Correct!";
+      } else {
+        msg.color = "red";
+        msg.innerHTML = "Incorrect";
+      }
+      document.querySelector("#q-1").append(msg);
+    };
+
+    document.getElementById("html").addEventListener("click", (e) => {
+      e.target.style.accentColor = "red";
+      showMsg(false);
+    });
+    document.getElementById("css").addEventListener("click", (e) => {
+      e.target.style.accentColor = "red";
+      showMsg(false);
+    });
+    document.getElementById("js").addEventListener("click", (e) => {
+      e.target.style.accentColor = "green";
+      showMsg(true);
+    });
+
+    const onClick = () => {
+      const msg = document.createElement("div");
+      const text = document.getElementById("text");
+      const answer = text.value;
+      if (answer === "Suka") {
+        text.style.background = "green";
+        msg.innerHTML = "Correct!";
+      } else {
+        text.style.background = "red";
+        msg.innerHTML = "Incorrect";
+      }
+      text.after(msg);
+    }
+  </script>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="/static/styles.css" rel="stylesheet">
+    <title>Birthdays</title>
+  </head>
+
+  <body>
+    <div class="header">
+      <h1>Birthdays</h1>
+    </div>
+    <div class="container">
+      <div class="section">
+        <h2>Add a Birthday</h2>
+        <form action="/" method="post">
+          <label for="name">Name</label>
+          <input name="name" id="name" type="text" required>
+          <label for="month">Month</label>
+          <input name="month" id="month" type="number" min="1" max="12" required>
+          <label for="day">Day</label>
+          <input name="day" id="day" type="number" min="1" max="31" required>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div class="section">
+        <h2>All Birthdays</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Birthday</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for birthday in birthdays %}
+            <tr>
+              <td>{{ birthday.name }}</td>
+              <td>{{ birthday.month }}-{{ birthday.day }}</td>
+              <td>
+                <form action="/remove?id={{ birthday.id }}" method="post">
+                  <button type="submit">Remove</button>
+                </form>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Quote
+{% endblock %}
+
+{% block main %}
+{% if quote %}
+<section>
+  <span>Ticker: {{ quote.symbol }}</span>
+  <span>Price: {{ quote.price | usd }}</span>
+</section>
+{% endif %}
+<form action="/quote" method="post">
+  <h1>Quote</h1>
+  <label for="symbol">Symbol</label>
+  <input name="symbol" id="symbol" type="text" required>
+  <button type="submit">Quote</button>
+</form>
+{% endblock %}

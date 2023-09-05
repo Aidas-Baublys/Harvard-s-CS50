@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Assets
+{% endblock %}
+
+{% block main %}
+<span>Total Cash: {{ cash | usd }}</span>
+{% if portfolio %}
+<table>
+  <thead>
+    <tr>
+      <th>Symbol</th>
+      <th>Shares</th>
+      <th>Current Price</th>
+      <th>Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for asset in portfolio %}
+    <tr>
+      <td>{{ asset.symbol }}</td>
+      <td>{{ asset.shares }}</td>
+      <td>{{ asset.current_price | usd }}</td>
+      <td>{{ asset.total | usd }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endif %}
+{% endblock %}

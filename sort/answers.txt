@@ -1,0 +1,11 @@
+sort1 uses: bubble sort
+
+How do you know?: Cause the difference between worst case (random) and best case (sorted) is big and from the three only bubble sort has such different time complexity (n^2 vs n).
+
+sort2 uses: merge sort
+
+How do you know?: Cause it was the fastest in the worst case (random) and in all cases it took about the same time and from the three only merge sort has such equal time complexity (n * log(n) in all cases).
+
+sort3 uses: selection sort
+
+How do you know?: Cause in all cases it took about the same time, but longer in the worst case (random) than sort2 while slower than sort1, and from the three only selection sort has such equal time complexity (n^2 in all cases).

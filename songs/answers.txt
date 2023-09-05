@@ -1,0 +1,5 @@
+1. If songs.db contains the top 100 songs of one listener from 2018, how would you characterize their audio aura?
+I would average out all the numeric data points (energy, valence, etc.) to get a ruff view of the users preferences.
+
+2. Hypothesize about why the way you’ve calculated this aura might not be very representative of the listener. What better ways of calculating this aura would you propose?
+Ussing a predictive AI model, feeding it this info and testing by suggesting its predictions to the user. If the user listens, then the model is correct.
